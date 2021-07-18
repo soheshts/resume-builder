@@ -1,0 +1,11 @@
+body{
+    background: #012345;
+    
+	font-family: "Limelight", sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+  }
