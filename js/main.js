@@ -4,6 +4,9 @@ $(document).ready(function () {
     datepicker = $(function () {
         $(".datepicker").datepicker();
     });
+    $('#dialogPersonal').position({
+        of: $(window)
+    });
 });
 
 function initDialog() {
