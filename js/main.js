@@ -1,31 +1,19 @@
 $(document).ready(function () {
     console.log("ready!");
-    initDialog();
-    datepicker = $(function () {
-        $(".datepicker").datepicker();
-    });
-    $('#dialogPersonal').position({
-        of: $(window)
-    });
+    
 });
-
-function initDialog() {
-    dialog = $("#dialogPersonal").dialog({
-        title: "Personal Details",
-        autoOpen: true,
-        height: 450,
-        width: 400,
-        draggable: false,
-        dialogClass: "no-close",
-        closeOnEscape: false,
-        buttons: {
-            "Next": function () {
-                dialog.dialog("close");
-            },
-            Cancel: function () {
-                dialog.dialog("close");
-            }
-        },
-
-    });
+var userData = new Object();
+function addPersonalData() {
+    console.log($("#name").val());
+    var personal = new Object();
+    personal.name = $("#name").val();
+    personal.designation = $("#designation").val();
+    personal.email = $("#email").val();
+    personal.phone = $("#phone").val();
+    personal.dob = $("#dob").val();
+    personal.github = $("#github").val();
+    personal.twitter = $("#twitter").val();
+    personal.website = $("#website").val();
+    userData.personal = personal;
+    console.log(JSON.stringify(userData));
 }
