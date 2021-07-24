@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    
+
 
     <div id="personalDetails" class="uk-background-primary middle ">
 
         <div class="uk-background-muted uk-padding-large uk-box-shadow-large ">
             <div>
                 <h1>Resume Builder</h1>
-                
+
 
             </div>
             <div>
@@ -29,23 +29,24 @@
                 <table>
                     <tr>
                         <td><label for="name">Name</label></td>
-                        <td><input type="text" name="name" id="name" placeholder="name" class="uk-input uk-form-small">
+                        <td><input type="text" name="name" id="name" placeholder="John Doe"
+                                class="uk-input uk-form-small">
                         </td>
                     </tr>
                     <tr>
                         <td> <label for="designation">Designation</label></td>
-                        <td><input type="text" name="designation" id="designation" placeholder="designation"
+                        <td><input type="text" name="designation" id="designation" placeholder="Software Engineer"
                                 class="uk-input uk-form-small">
                         </td>
                     </tr>
                     <tr>
                         <td> <label for="phone">Phone</label></td>
-                        <td><input type="text" name="phone" id="phone" placeholder="phone number"
+                        <td><input type="text" name="phone" id="phone" placeholder="9876543210"
                                 class="uk-input uk-form-small"></td>
                     </tr>
                     <tr>
                         <td><label for="email">Email</label></td>
-                        <td> <input type="email" name="email" id="email" placeholder="name@email"
+                        <td> <input type="email" name="email" id="email" placeholder="name@email.com"
                                 class="uk-input uk-form-small"></td>
                     </tr>
                     <tr>
@@ -86,7 +87,7 @@
         <div class="uk-background-muted uk-padding-large uk-box-shadow-large uk-animation-slide-right-medium">
             <div>
                 <h1>Resume Builder</h1>
-                
+
 
             </div>
             <div>
@@ -107,7 +108,7 @@
         <div class="uk-background-muted uk-padding-large uk-box-shadow-large uk-animation-slide-right-medium">
             <div>
                 <h1>Resume Builder</h1>
-                
+
 
             </div>
             <div>
@@ -139,7 +140,7 @@
                                 onclick="clearEducationalFields()">Add
                                 another</button></td>
                         <td><button class="uk-button uk-button-primary uk-align-center"
-                                onclick="addEducationalData()">Next</button></td>
+                                onclick="goToExperiencePage()">Next</button></td>
                     </tr>
 
                 </table>
@@ -150,6 +151,102 @@
         </div>
 
 
+    </div>
+
+    <!-- Experience Details -->
+    <div id="experienceDetails" class="uk-background-primary middle ">
+
+        <div class="uk-background-muted uk-padding-large uk-box-shadow-large uk-animation-slide-right-medium">
+            <div>
+                <h1>Resume Builder</h1>
+
+            </div>
+            <div>
+                <h4>Experience Details</h4>
+                <table>
+                    <tr>
+                        <td><label for="companyName">Company Name</label></td>
+                        <td><input type="text" name="companyName" id="companyName" placeholder="Example Inc"
+                                class="uk-input uk-form-small">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="companyDesignation">Designation</label></td>
+                        <td><input type="text" name="companyDesignation" id="companyDesignation"
+                                placeholder="Software Engineer" class="uk-input uk-form-small">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="companyStartDate">Start Date</label></td>
+                        <td> <input type="date" name="companyStartDate" id="companyStartDate"
+                                class="uk-input uk-form-small"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="companyEndDate">End Date</label></td>
+                        <td> <input type="date" name="companyEndDate" id="companyEndDate"
+                                class="uk-input uk-form-small"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="projects" class="uk-text-bold">Projects</label></td>
+                        <td> <a class="uk-badge" href="#modal-center" uk-toggle>Add Project</a> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p id="projectList" class="uk-text-meta"></p>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><button class="uk-button uk-button-primary " onclick="clearAndAddAnotherCompany()">Add
+                                another</button></td>
+                        <td><button class="uk-button uk-button-primary " onclick="addCompanyDetails()">Next</button>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <!-- Add project pop up -->
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog  uk-margin-auto-vertical">
+
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+            <div>
+                <div class="uk-modal-header">
+                    <h4 class="uk-modal-title">Add a project</h4>
+                </div>
+                <div class="uk-modal-body">
+                    <table>
+                        <tr>
+                            <td> <label for="projectName">Project Name</label> </td>
+                            <td> <input type="text" name="projectName" id="projectName" placeholder="project name"
+                                    class="uk-input uk-form-small"> </td>
+                        </tr>
+                        <tr>
+                            <td> <label for="projectDescription">Project Description</label> </td>
+                            <td> <textarea id="projectDescription" name="projectDescription" rows="4" cols="50"
+                                    class="uk-textarea"></textarea></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary uk-modal-close " onclick="addProjectDetails()">Add
+                    Project</button>
+            </div>
+        </div>
     </div>
 
 </body>
