@@ -1,5 +1,7 @@
 $(document).ready(function () {
     console.log("ready!");
+    
+    $("#profileSummaryDetails").hide();
     $("#educationalDetails").hide();
 
     
@@ -8,7 +10,7 @@ var userData = new Object();
 userData.educational = []
 function addPersonalData() {
     $("#personalDetails").hide();
-    $("#educationalDetails").show();
+    $("#profileSummaryDetails").show();
     console.log($("#name").val());
     var personal = new Object();
     personal.name = $("#name").val();
@@ -25,19 +27,27 @@ function addPersonalData() {
 function addEducationalData() {
     
     var educational = new Object();
-    educational.name = $("#collegeName").val();
+    educational.name = $("#institutionName").val();
     educational.course = $("#course").val();
-    educational.from = $("#collegeFromDate").val();
-    educational.to = $("#collegeEndDate").val();
+    educational.from = $("#startDate").val();
+    educational.to = $("#endDate").val();
     
     userData.educational.push(educational);
     console.log(JSON.stringify(userData));
 }
 function clearEducationalFields() {
     addEducationalData();
-    $("#collegeName").val('');
+    $("#institutionName").val('');
     $("#course").val('');
-    $("#collegeFromDate").val('');
-    $("#collegeEndDate").val('');
+    $("#startDate").val('');
+    $("#endDate").val('');
     
+}
+function addProfileSummary(){
+    $("#profileSummaryDetails").hide();
+    $("#educationalDetails").show();
+    var personalSummary = new Object();
+    personalSummary = $("#profileSummary").val();
+    userData.personalSummary = personalSummary;
+    console.log(JSON.stringify(userData));
 }
