@@ -1,0 +1,56 @@
+{
+    "educationalList": [
+        {
+            "name": "CIS",
+            "course": "Grade 12",
+            "from": "2021-07-01",
+            "to": "2021-07-23"
+        },
+        {
+            "name": "Amal Jyothi",
+            "course": "BTech",
+            "from": "2021-07-06",
+            "to": "2021-07-23"
+        }
+    ],
+    "companyList": [
+        {
+            "name": "Coolminds",
+            "designation": "software engineer",
+            "startDate": "2016-07-25",
+            "endDate": "2021-01-01",
+            "projectList": [
+                {
+                    "name": "Digital Delivery",
+                    "description": "Digital Delivery of Giftcards"
+                },
+                {
+                    "name": "iCare",
+                    "description": "Hospital Management"
+                }
+            ]
+        }
+    ],
+    "skills": [
+        "Java",
+        "Spring Boot",
+        "Spring MVC",
+        "Microservices"
+    ],
+    "hobbies": [
+        "Blogging",
+        "Story Writing",
+        "photography"
+    ],
+    "personal": {
+        "name": "Sohesh TS",
+        "designation": "Software Engineer",
+        "email": "soheshts@gmail.com",
+        "phone": "9876543210",
+        "dob": "1993-08-18",
+        "github": "github.com/soheshts",
+        "twitter": "twitter.com/soheshts",
+        "website": "soheshts.github.io"
+    },
+    "personalSummary": "I am a java developer"
+}

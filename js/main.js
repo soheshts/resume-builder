@@ -4,12 +4,17 @@ $(document).ready(function () {
     $("#profileSummaryDetails").hide();
     $("#educationalDetails").hide();
     $("#experienceDetails").hide();
+    $("#skillsDetails").hide();
+    $("#hobbyDetails").hide();
+    
 
 
 });
 var userData = new Object();
-userData.educational = [];
+userData.educationalList = [];
 userData.companyList = [];
+userData.skills = [];
+userData.hobbies = [];
 var projectList = [];
 function addPersonalData() {
     $("#personalDetails").hide();
@@ -89,4 +94,32 @@ function clearAndAddAnotherCompany() {
     $("#companyEndDate").val('');
     $("#projectList").html('');
 
+}
+function goToSkillsPage() {
+    addCompanyDetails();
+    $("#experienceDetails").hide();
+    $("#skillsDetails").show();
+    
+
+}
+function addOneSkillToList() {
+    var skillName = $("#skillName").val();
+    userData.skills.push(skillName);
+    $("#skillName").val('');
+    $("#skillList").append('<span class="uk-badge">' + skillName + '</span>');
+}
+function addHobbies(){
+    $("#skillsDetails").hide();
+    $("#hobbyDetails").show();
+}
+
+function addOneHobbyToList() {
+    var hobbyName = $("#hobbyName").val();
+    userData.hobbies.push(hobbyName);
+    $("#hobbyName").val('');
+    $("#hobbyList").append('<span class="uk-badge">' + hobbyName + '</span>');
+}
+function downloadResume(){
+    console.log("Complete JSON");
+    console.log(JSON.stringify(userData));
 }

@@ -202,7 +202,7 @@
 
                         <td><button class="uk-button uk-button-primary " onclick="clearAndAddAnotherCompany()">Add
                                 another</button></td>
-                        <td><button class="uk-button uk-button-primary " onclick="addCompanyDetails()">Next</button>
+                        <td><button class="uk-button uk-button-primary " onclick="goToSkillsPage()">Next</button>
                         </td>
                     </tr>
 
@@ -246,6 +246,58 @@
                 <button class="uk-button uk-button-primary uk-modal-close " onclick="addProjectDetails()">Add
                     Project</button>
             </div>
+        </div>
+    </div>
+
+
+    <!-- Add Skills -->
+     <div id="skillsDetails" class="uk-background-primary middle ">
+
+        <div class="uk-background-muted uk-padding-large uk-box-shadow-large uk-animation-slide-right-medium">
+            <div>
+                <h1>Resume Builder</h1>
+
+
+            </div>
+            <div>
+                <h4>Skills</h4>
+                <table>
+                    <tr>
+                        <td><input type="text" name="skillName" id="skillName" placeholder="Add one skill"
+                            class="uk-input uk-form-default"></td>
+                        <td> <button class="uk-button uk-button-default uk-modal-close" onclick="addOneSkillToList()" type="button">Add</button></td>
+                    </tr>
+                    
+                </table>
+                <div class="uk-container" id="skillList"> </div>
+
+            </div>
+            <button class="uk-button uk-button-primary uk-align-center" onclick="addHobbies()">Next</button>
+        </div>
+    </div>
+    <!-- Add Hobbies -->
+    <div id="hobbyDetails" class="uk-background-primary middle ">
+
+        <div class="uk-background-muted uk-padding-large uk-box-shadow-large uk-animation-slide-right-medium">
+            <div>
+                <h1>Resume Builder</h1>
+
+
+            </div>
+            <div>
+                <h4>Hobbies</h4>
+                <table>
+                    <tr>
+                        <td><input type="text" name="hobbyName" id="hobbyName" placeholder="Add one hobby"
+                            class="uk-input uk-form-default"></td>
+                        <td> <button class="uk-button uk-button-default uk-modal-close" onclick="addOneHobbyToList()" type="button">Add</button></td>
+                    </tr>
+                    
+                </table>
+                <div class="uk-container" id="hobbyList"> </div>
+
+            </div>
+            <button class="uk-button uk-button-primary uk-align-center" onclick="downloadResume()">Download Resume</button>
         </div>
     </div>
 
