@@ -40,7 +40,7 @@ function addEducationalData() {
     educational.from = $("#startDate").val();
     educational.to = $("#endDate").val();
 
-    userData.educational.push(educational);
+    userData.educationalList.push(educational);
     console.log(JSON.stringify(userData));
 }
 function goToExperiencePage() {
