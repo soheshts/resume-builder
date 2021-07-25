@@ -1,6 +1,6 @@
 $(document).ready(function () {
     console.log("ready!");
-
+    loadFromFile();
     $("#profileSummaryDetails").hide();
     $("#educationalDetails").hide();
     $("#experienceDetails").hide();
@@ -122,4 +122,11 @@ function addOneHobbyToList() {
 function downloadResume(){
     console.log("Complete JSON");
     console.log(JSON.stringify(userData));
+}
+
+function loadFromFile(){
+    $.get("templates/sample.html", function(response) {
+        var logfile = response;
+        console.log(logfile);
+   });
 }
