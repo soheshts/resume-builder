@@ -11,8 +11,8 @@ $(document).ready(function () {
     $("#experienceDetails").hide();
     $("#skillsDetails").hide();
     $("#hobbyDetails").hide();
-    
-    
+
+
 
 
 
@@ -149,8 +149,8 @@ function loadFromFile() {
         return templateFile;
     });
 }
-function createFile(html){
-    
+function createFile(html) {
+
     // var opt = {
     //     margin:       0.4,
     //     filename:     'myfile.pdf',
@@ -159,16 +159,16 @@ function createFile(html){
     //     jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
     //   };
     // html2pdf(html,opt);
-   
-
-var w = window.open();
-
-w.document.open();
-w.document.write(html);
-w.document.close();
 
 
-//w.close();
+    var w = window.open();
+
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+
+
+    //w.close();
 
 
 }

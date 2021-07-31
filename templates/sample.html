@@ -2,8 +2,8 @@
 
 <head>
     <title>Resume Builder</title>
-    
-    <script src="https://kit.fontawesome.com/cc8d569a53.js" ></script>
+
+    <script src="https://kit.fontawesome.com/cc8d569a53.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300&display=swap');
 
@@ -44,12 +44,71 @@
             line-height: 10px;
 
         }
+
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+        }
+
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 10mm;
+            margin: 10mm auto;
+            border: 1px #D3D3D3 solid;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .subpage {
+            padding: 1cm;
+            border: 5px red solid;
+            height: 257mm;
+            outline: 2cm #FFEAEA solid;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+
+            html,
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+            #printer{
+                display: none;
+            }
+            .page {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+                page-break-after: always;
+            }
+        }
     </style>
 
 </head>
 
 <body>
-    <div>
+    <button id="printer" type="button" onclick="printToPDF()">Print PDF</button>
+    <div class="page">
         <div class="float-left left-box">
             <div class="title" style="float: left; ">
                 <h1 class="">{{personal.name}}</h1>
@@ -61,7 +120,7 @@
                 <p>{{personal.summary}}</p>
             </div>
             <div class="float-left fontbody">
-                <h3><i id = "loadCheck" class="fas fa-briefcase"></i> Experience</h3>
+                <h3><i id="loadCheck" class="fas fa-briefcase"></i> Experience</h3>
                 <div>
                     <h4>Current Big Company</h4>
                     <p>Senior Software Engineer</p>
@@ -160,9 +219,11 @@
         </div>
     </div>
     <script>
-        window.onload = function(){
-            console.log("loaded new window");
-            window.print();
+        function printToPDF() {
+            
+                console.log("printing");
+                window.print();
+            
         }
     </script>
 </body>
