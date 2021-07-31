@@ -2,12 +2,8 @@
 
 <head>
     <title>Resume Builder</title>
-    <!-- <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit-icons.min.js"></script> -->
-    <script src="https://kit.fontawesome.com/cc8d569a53.js" crossorigin="anonymous"></script>
+    
+    <script src="https://kit.fontawesome.com/cc8d569a53.js" ></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300&display=swap');
 
@@ -38,7 +34,15 @@
 
         .fontbody {
             font-family: 'Roboto', sans-serif;
+        }
+
+        .left-box {
+            max-width: 500px;
+        }
+
+        .line-height {
             line-height: 10px;
+
         }
     </style>
 
@@ -46,69 +50,69 @@
 
 <body>
     <div>
-        <div class="float-left">
+        <div class="float-left left-box">
             <div class="title" style="float: left; ">
-                <h1 class="">Sohesh TS</h1>
-                <p>Software Engineer</p>
+                <h1 class="">{{personal.name}}</h1>
+                <p>{{personal.designation}}</p>
             </div>
 
             <div class="float-left fontbody">
                 <h4>Professional Summary</h4>
-                <p>An experienced Java developer with quick learning skills</p>
+                <p>{{personal.summary}}</p>
             </div>
             <div class="float-left fontbody">
-                <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                <h3><i id = "loadCheck" class="fas fa-briefcase"></i> Experience</h3>
                 <div>
                     <h4>Current Big Company</h4>
                     <p>Senior Software Engineer</p>
                     <h5>Project Title 1</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                    <p>laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
                 <div>
                     <h4>Previous Big Company</h4>
                     <p> Software Engineer</p>
                     <h5>Project Title 2</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                    <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                    <p>laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
-            <div class="float-left fontbody">
+            <div class="float-left fontbody line-height">
                 <h3><i class="fas fa-university"></i> Education</h3>
                 <div>
                     <h4>University name</h4>
                     <h5>Bachelor of Technology</h5>
                     <p>2012-2016</p>
-                    
+
                 </div>
                 <div>
                     <h4>School name</h4>
                     <h5>Indian certificate of secondary education</h5>
                     <p>2010-2012</p>
-                    
+
                 </div>
-                
+
             </div>
-            <div class="float-left fontbody">
+            <div class="float-left fontbody line-height">
                 <h3><i class="fas fa-certificate"></i> Certification</h3>
                 <div>
                     <h4>Oracle certification</h4>
                     <h5>Java developer</h5>
-                    
+
                 </div>
                 <div>
                     <h4>AWS Certification</h4>
                     <h5>Cloud specialist</h5>
-                    
+
                 </div>
-                
+
             </div>
         </div>
-        <div class="float-right">
+        <div class="float-right line-height">
             <div class="fontbody">
                 <h3><i class="fas fa-user"></i> Personal Info</h3>
                 <h4>Address</h4>
@@ -116,17 +120,17 @@
                 <p> Washington, D.C. 20500</p>
                 <p> U.S.</p>
                 <h4> E-mail </h4>
-                <p>soheshts@gmail.com</p>
+                <p>{{personal.email}}</p>
                 <h4> Phone </h4>
-                <p>+91 9876543210</p>
+                <p>{{personal.phone}}</p>
                 <h4> Date of birth </h4>
-                <p>01-01-1993</p>
+                <p>{{personal.dob}}</p>
                 <h4> Github </h4>
-                <p>github.com/username</p>
+                <p>{{personal.github}}</p>
                 <h4> Twitter </h4>
-                <p>twitter.com/username</p>
+                <p>{{personal.twitter}}</p>
                 <h4> Website </h4>
-                <p>username.com</p>
+                <p>{{personal.website}}</p>
 
             </div>
             <div class="fontbody">
@@ -155,6 +159,12 @@
             </div>
         </div>
     </div>
+    <script>
+        window.onload = function(){
+            console.log("loaded new window");
+            window.print();
+        }
+    </script>
 </body>
 
 </html>

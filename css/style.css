@@ -32,3 +32,21 @@ body {
 .hide {
     display: none;
 }
+
+.page{
+    size: letter;
+    /* width:794px;  */
+    /* height:1122px; */
+    background : white;
+    margin: 10px;
+}
+.float-right {
+    float: right;
+    clear: right;
+    
+}
+
+.float-left {
+    float: left;
+    clear: left;
+}

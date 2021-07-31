@@ -1,15 +1,23 @@
+
 $(document).ready(function () {
     console.log("ready!");
     loadFromFile();
+    // $("#preview").load("templates/sample.html", function(){
+    //     createFile();
+    // });
+    // $("#personalDetails").hide();
     $("#profileSummaryDetails").hide();
     $("#educationalDetails").hide();
     $("#experienceDetails").hide();
     $("#skillsDetails").hide();
     $("#hobbyDetails").hide();
     
+    
+
 
 
 });
+var source = "";
 var userData = new Object();
 userData.educationalList = [];
 userData.companyList = [];
@@ -99,7 +107,7 @@ function goToSkillsPage() {
     addCompanyDetails();
     $("#experienceDetails").hide();
     $("#skillsDetails").show();
-    
+
 
 }
 function addOneSkillToList() {
@@ -108,7 +116,7 @@ function addOneSkillToList() {
     $("#skillName").val('');
     $("#skillList").append('<span class="uk-badge">' + skillName + '</span>');
 }
-function addHobbies(){
+function addHobbies() {
     $("#skillsDetails").hide();
     $("#hobbyDetails").show();
 }
@@ -119,14 +127,48 @@ function addOneHobbyToList() {
     $("#hobbyName").val('');
     $("#hobbyList").append('<span class="uk-badge">' + hobbyName + '</span>');
 }
-function downloadResume(){
+function downloadResume() {
+    var json = JSON.stringify(userData);
     console.log("Complete JSON");
-    console.log(JSON.stringify(userData));
+    console.log(json);
+    // var source = loadFromFile();
+    //console.log(source.responseText);
+    var template = Handlebars.compile(source.responseText);
+    var html = template(userData);
+    // $("#preview").load(html, function(){
+    //         createFile(html);
+    //     });
+    createFile(html);
+    console.log(html);
 }
 
-function loadFromFile(){
-    $.get("templates/sample.html", function(response) {
-        var logfile = response;
-        console.log(logfile);
-   });
+function loadFromFile() {
+    source = $.get("templates/sample.html", function (response) {
+        var templateFile = response;
+        // console.log(templateFile);
+        return templateFile;
+    });
+}
+function createFile(html){
+    
+    // var opt = {
+    //     margin:       0.4,
+    //     filename:     'myfile.pdf',
+    //     image:        { type: 'jpeg', quality: 1 },
+    //     html2canvas:  { scale: 5 },
+    //     jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+    //   };
+    // html2pdf(html,opt);
+   
+
+var w = window.open();
+
+w.document.open();
+w.document.write(html);
+w.document.close();
+
+
+//w.close();
+
+
 }
