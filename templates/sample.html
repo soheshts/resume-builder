@@ -121,40 +121,28 @@
             </div>
             <div class="float-left fontbody">
                 <h3><i id="loadCheck" class="fas fa-briefcase"></i> Experience</h3>
+                {{#each companyList}}
                 <div>
-                    <h4>Current Big Company</h4>
-                    <p>Senior Software Engineer</p>
-                    <h5>Project Title 1</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <h4>{{name}}</h4>
+                    <p>{{designation}}</p>
+                    <p>{{startDate}} - {{endDate}}</p>
+                    {{#each projectList}}
+                        <h5>{{name}}</h5>
+                        <p>{{description}}</p>
+                    {{/each}}
                 </div>
-                <div>
-                    <h4>Previous Big Company</h4>
-                    <p> Software Engineer</p>
-                    <h5>Project Title 2</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
+                {{/each}}
+                
             </div>
             <div class="float-left fontbody line-height">
                 <h3><i class="fas fa-university"></i> Education</h3>
+                {{#each educationalList}}
                 <div>
-                    <h4>University name</h4>
-                    <h5>Bachelor of Technology</h5>
-                    <p>2012-2016</p>
-
+                    <h4>{{name}}</h4>
+                    <h5>{{course}}</h5>
+                    <p>{{from}} - {{to}}</p>
                 </div>
-                <div>
-                    <h4>School name</h4>
-                    <h5>Indian certificate of secondary education</h5>
-                    <p>2010-2012</p>
-
-                </div>
-
+                {{/each}}
             </div>
             <div class="float-left fontbody line-height">
                 <h3><i class="fas fa-certificate"></i> Certification</h3>
@@ -194,27 +182,17 @@
             </div>
             <div class="fontbody">
                 <h3><i class="fas fa-code"></i> Skills</h3>
-
-                <p>Java</p>
-                <p>Spring Boot</p>
-                <p>Microservices</p>
-                <p>Docker</p>
-                <p>Webservices</p>
-                <p>RabbitMQ</p>
-                <p>Java</p>
-                <p>Spring Boot</p>
-                <p>Microservices</p>
-                <p>Docker</p>
-                <p>Webservices</p>
-                <p>RabbitMQ</p>
+                {{skills}}
+                {{#each skills}}
+                <p>{{this}}</p>
+                {{/each}}
 
             </div>
             <div class="fontbody">
                 <h3> <i class="fas fa-basketball-ball"></i> Interests</h3>
-                <p>Blogging</p>
-                <p>Photography</p>
-                <p>Reading</p>
-                <p>Story writing</p>
+                {{#each hobbies}}
+                <p>{{this}}</p>
+                {{/each}}
             </div>
         </div>
     </div>
