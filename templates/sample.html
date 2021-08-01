@@ -25,6 +25,8 @@
         .float-right {
             float: right;
             clear: right;
+            max-width: 200px;
+
         }
 
         .float-left {
@@ -88,9 +90,11 @@
                 width: 210mm;
                 height: 297mm;
             }
-            #printer{
+
+            #printer {
                 display: none;
             }
+
             .page {
                 margin: 0;
                 border: initial;
@@ -107,7 +111,7 @@
 </head>
 
 <body>
-    <button id="printer" type="button" onclick="printToPDF()">Print PDF</button>
+    <!-- <button id="printer" type="button" onclick="printToPDF()">Print PDF</button> -->
     <div class="page">
         <div class="float-left left-box">
             <div class="title" style="float: left; ">
@@ -117,9 +121,9 @@
 
             <div class="float-left fontbody">
                 <h4>Professional Summary</h4>
-                <p>{{personal.summary}}</p>
+                <p>{{personalSummary}}</p>
             </div>
-            <div class="float-left fontbody">
+            <div class="float-left fontbody line-height">
                 <h3><i id="loadCheck" class="fas fa-briefcase"></i> Experience</h3>
                 {{#each companyList}}
                 <div>
@@ -127,12 +131,12 @@
                     <p>{{designation}}</p>
                     <p>{{startDate}} - {{endDate}}</p>
                     {{#each projectList}}
-                        <h5>{{name}}</h5>
-                        <p>{{description}}</p>
+                    <h5>{{name}}</h5>
+                    <p style="line-height: normal;">{{description}}</p>
                     {{/each}}
                 </div>
                 {{/each}}
-                
+
             </div>
             <div class="float-left fontbody line-height">
                 <h3><i class="fas fa-university"></i> Education</h3>
@@ -163,9 +167,7 @@
             <div class="fontbody">
                 <h3><i class="fas fa-user"></i> Personal Info</h3>
                 <h4>Address</h4>
-                <p>1600 Pennsylvania Avenue</p>
-                <p> Washington, D.C. 20500</p>
-                <p> U.S.</p>
+                <p style="line-height: normal;">{{personal.address}}</p>
                 <h4> E-mail </h4>
                 <p>{{personal.email}}</p>
                 <h4> Phone </h4>
@@ -182,7 +184,6 @@
             </div>
             <div class="fontbody">
                 <h3><i class="fas fa-code"></i> Skills</h3>
-                {{skills}}
                 {{#each skills}}
                 <p>{{this}}</p>
                 {{/each}}
@@ -198,10 +199,10 @@
     </div>
     <script>
         function printToPDF() {
-            
-                console.log("printing");
-                window.print();
-            
+
+            console.log("printing");
+            window.print();
+
         }
     </script>
 </body>

@@ -2,7 +2,14 @@
 $(document).ready(function () {
     console.log("ready!");
     loadFromFile();
-    // $("#preview").load("templates/sample.html", function(){
+    //$("#preview").load("templates/sample.html")
+    $.get("templates/sample.html", function (response) {
+        var templateFile = response;
+        $("#preview").attr("srcdoc", response);
+        return templateFile;
+    });
+
+    //, function(){
     //     createFile();
     // });
     // $("#personalDetails").hide();
@@ -17,6 +24,7 @@ $(document).ready(function () {
 
 
 });
+var template = "";
 var source = "";
 var userData = new Object();
 userData.educationalList = [];
@@ -24,13 +32,14 @@ userData.companyList = [];
 userData.skills = [];
 userData.hobbies = [];
 var projectList = [];
+
 function addPersonalData() {
-    $("#personalDetails").hide();
-    $("#profileSummaryDetails").show();
+
     console.log($("#name").val());
     var personal = new Object();
     personal.name = $("#name").val();
     personal.designation = $("#designation").val();
+    personal.address = $("#address").val();
     personal.email = $("#email").val();
     personal.phone = $("#phone").val();
     personal.dob = $("#dob").val();
@@ -38,7 +47,14 @@ function addPersonalData() {
     personal.twitter = $("#twitter").val();
     personal.website = $("#website").val();
     userData.personal = personal;
+    renderPreview();
     console.log(JSON.stringify(userData));
+}
+function goToProfessionalSummary() {
+    addPersonalData();
+    $("#personalDetails").hide();
+    $("#profileSummaryDetails").show();
+
 }
 function addEducationalData() {
 
@@ -47,18 +63,23 @@ function addEducationalData() {
     educational.course = $("#course").val();
     educational.from = $("#startDate").val();
     educational.to = $("#endDate").val();
+    renderPreview();
+    // console.log(JSON.stringify(userData));
+    return educational;
 
-    userData.educationalList.push(educational);
-    console.log(JSON.stringify(userData));
 }
 function goToExperiencePage() {
-    addEducationalData();
+    var educational = addEducationalData();
+    userData.educationalList.push(educational);
+    renderPreview();
     $("#educationalDetails").hide();
     $("#experienceDetails").show();
 
 }
 function clearEducationalFields() {
-    addEducationalData();
+    var educational = addEducationalData();
+    userData.educationalList.push(educational);
+    renderPreview();
     $("#institutionName").val('');
     $("#course").val('');
     $("#startDate").val('');
@@ -66,12 +87,17 @@ function clearEducationalFields() {
 
 }
 function addProfileSummary() {
-    $("#profileSummaryDetails").hide();
-    $("#educationalDetails").show();
+
     var personalSummary = new Object();
     personalSummary = $("#profileSummary").val();
     userData.personalSummary = personalSummary;
-    console.log(JSON.stringify(userData));
+    renderPreview();
+    // console.log(JSON.stringify(userData));
+}
+function goToEducationalData() {
+    addProfileSummary();
+    $("#profileSummaryDetails").hide();
+    $("#educationalDetails").show();
 }
 
 function addProjectDetails() {
@@ -89,12 +115,14 @@ function addCompanyDetails() {
     companyInfo.startDate = $("#companyStartDate").val();
     companyInfo.endDate = $("#companyEndDate").val();
     companyInfo.projectList = projectList;
-    userData.companyList.push(companyInfo);
-    console.log(JSON.stringify(userData));
+    return companyInfo;
+    // console.log(JSON.stringify(userData));
 }
 
 function clearAndAddAnotherCompany() {
-    addCompanyDetails();
+    var companyInfo = addCompanyDetails();
+    userData.companyList.push(companyInfo);
+    renderPreview();
     projectList = [];
     $("#companyName").val('');
     $("#companyDesignation").val('');
@@ -104,7 +132,9 @@ function clearAndAddAnotherCompany() {
 
 }
 function goToSkillsPage() {
-    addCompanyDetails();
+    var companyInfo = addCompanyDetails();
+    userData.companyList.push(companyInfo);
+    renderPreview();
     $("#experienceDetails").hide();
     $("#skillsDetails").show();
 
@@ -113,6 +143,7 @@ function goToSkillsPage() {
 function addOneSkillToList() {
     var skillName = $("#skillName").val();
     userData.skills.push(skillName);
+    renderPreview();
     $("#skillName").val('');
     $("#skillList").append('<span class="uk-badge">' + skillName + '</span>');
 }
@@ -124,24 +155,32 @@ function addHobbies() {
 function addOneHobbyToList() {
     var hobbyName = $("#hobbyName").val();
     userData.hobbies.push(hobbyName);
+    renderPreview();
     $("#hobbyName").val('');
     $("#hobbyList").append('<span class="uk-badge">' + hobbyName + '</span>');
 }
 function downloadResume() {
-    var json = JSON.stringify(userData);
-    console.log("Complete JSON");
-    console.log(json);
-    // var source = loadFromFile();
-    //console.log(source.responseText);
+    // var json = JSON.stringify(userData);
+    // console.log("Complete JSON");
+    // console.log(json);
+    // // var source = loadFromFile();
+    // //console.log(source.responseText);
+    // var template = Handlebars.compile(source.responseText);
+    // var html = template(userData);
+    // // $("#preview").load(html, function(){
+    // //         createFile(html);
+    // //     });
+    // createFile(html);
+    // console.log(html);
+    document.getElementById("preview").contentWindow.print();
+
+}
+function renderPreview() {
+    console.log("rendering preview");
     var template = Handlebars.compile(source.responseText);
     var html = template(userData);
-    // $("#preview").load(html, function(){
-    //         createFile(html);
-    //     });
-    createFile(html);
-    console.log(html);
+    $("#preview").attr("srcdoc", html);
 }
-
 function loadFromFile() {
     source = $.get("templates/sample.html", function (response) {
         var templateFile = response;
